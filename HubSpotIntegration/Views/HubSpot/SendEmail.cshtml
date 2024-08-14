@@ -1,0 +1,47 @@
+﻿@model dynamic
+
+<h2>Send Email</h2>
+
+<form asp-action="SendEmail" method="post">
+    <div>
+        <label>Email Template ID:</label>
+        <input type="text" name="emailId" required />
+    </div>
+    <div>
+        <label>To:</label>
+        <input type="email" name="to" required />
+    </div>
+    <div>
+        <label>From:</label>
+        <input type="email" name="from" required />
+    </div>
+    <div>
+        <label>Subject:</label>
+        <input type="text" name="subject" required />
+    </div>
+    <div>
+        <label>Content:</label>
+        <textarea name="content" required></textarea>
+    </div>
+    <div>
+        <label>Sequence ID:</label>
+        <input type="text" name="sequenceId" required />
+    </div>
+    <button type="submit">Send Email</button>
+</form>
+
+@if (ViewBag.EmailResponse != null)
+{
+    <div>
+        <h3>Email Response:</h3>
+        <p>@ViewBag.EmailResponse</p>
+    </div>
+}
+
+@if (ViewBag.SequenceResponse != null)
+{
+    <div>
+        <h3>Sequence Response:</h3>
+        <p>@ViewBag.SequenceResponse</p>
+    </div>
+}
